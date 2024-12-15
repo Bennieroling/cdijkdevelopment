@@ -6,10 +6,23 @@ import dotenv from "dotenv";
 
 dotenv.config(); // Load environment variables from .env file
 
+const rateLimit = require("express-rate-limit");
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests
+});
+
+app.use("/api/", limiter);
+
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(
+    cors({
+      origin: "c-dijk-dev.vercel.app", // Replace with your deployed frontend URL
+    })
+  );
 app.use(bodyParser.json());
 
 app.post("/api/send-message", async (req, res) => {
