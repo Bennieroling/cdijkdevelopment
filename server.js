@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import axios from "axios";
+require("dotenv").config();
 
 const app = express();
 
@@ -33,7 +34,7 @@ app.post("/api/send-message", async (req, res) => {
   try {
     const response = await axios.post("https://api.sendgrid.com/v3/mail/send", data, {
       headers: {
-        Authorization: "Bearer REMOVED_SECRET.PXr0iHPNTMguUlWr9O5xqjwV1cvzhci_0I7Uub6M_eo", // Replace with your API key
+        Authorization: 'Bearer ${sendgridApiKey}', // Replace with your API key
         "Content-Type": "application/json",
       },
     });
