@@ -21,9 +21,9 @@ const Navbar = () => {
         {/* <NavLink className={({ isActive }) => (isActive ? "text-white" : "")} to="/coaching">
           Coaching
         </NavLink> */}
-        {/* <NavLink className={({ isActive }) => (isActive ? "text-white" : "")} to="/contact">
+        <NavLink className={({ isActive }) => (isActive ? "text-white" : "")} to="/contact">
           Contact
-        </NavLink> */}
+        </NavLink>
       </div>
     </nav>
   );

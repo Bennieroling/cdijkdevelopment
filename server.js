@@ -2,15 +2,22 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import axios from "axios";
-require("dotenv").config();
+import dotenv from "dotenv";
+
+dotenv.config(); // Load environment variables from .env file
 
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
 app.post("/api/send-message", async (req, res) => {
   const { name, email, message } = req.body;
+
+  // Load environment variables
+  const sendgridApiKey = process.env.SENDGRID_API_KEY;
+  const templateId = process.env.TEMPLATE_ID;
 
   const data = {
     personalizations: [
@@ -25,16 +32,16 @@ app.post("/api/send-message", async (req, res) => {
       },
     ],
     from: {
-      email: "bjsvd@outlook.com", // Replace with your verified sender
+      email: "bjsvd@outlook.com", // Replace with your verified sender email
       name: "C~Dijk",
     },
-    template_id: "d-3613cf3ba8f54217ae92cbb83c15dd37", // Replace with your template ID
+    template_id: templateId, // Use the TEMPLATE_ID from .env
   };
 
   try {
     const response = await axios.post("https://api.sendgrid.com/v3/mail/send", data, {
       headers: {
-        Authorization: 'Bearer ${sendgridApiKey}',
+        Authorization: `Bearer ${sendgridApiKey}`, // Use the SENDGRID_API_KEY from .env
         "Content-Type": "application/json",
       },
     });
