@@ -20,7 +20,7 @@ const app = express();
 // Middleware
 app.use(
     cors({
-      origin: "c-dijk-dev.vercel.app", // Replace with your deployed frontend URL
+      origin: "http://c-dijk-dev.vercel.app", // Replace with your deployed frontend URL
     })
   );
 app.use(bodyParser.json());
