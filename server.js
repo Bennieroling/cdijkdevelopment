@@ -34,7 +34,7 @@ app.post("/api/send-message", async (req, res) => {
   try {
     const response = await axios.post("https://api.sendgrid.com/v3/mail/send", data, {
       headers: {
-        Authorization: 'Bearer ${sendgridApiKey}', // Replace with your API key
+        Authorization: 'Bearer ${sendgridApiKey}',
         "Content-Type": "application/json",
       },
     });
