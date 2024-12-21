@@ -14,14 +14,15 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("Sending...");
-
+  
     try {
-      const response = await fetch("https://c-dijk-dev.vercel.app/api/send-message", {
+      const response = await fetch("http://localhost:5173/api/send-message", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
+        mode: "cors", // Explicitly use CORS mode
       });
-
+  
       if (response.ok) {
         setStatus("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });
@@ -32,7 +33,9 @@ const Contact = () => {
       console.error("Error:", error);
       setStatus("An error occurred. Please try again.");
     }
-  };
+  };  
+  
+  
 
   return (
     <div className="contact-container">
