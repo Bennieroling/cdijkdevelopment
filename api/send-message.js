@@ -16,8 +16,8 @@ app.use(
       console.log(`Origin: ${origin}`);
       const allowedOrigins = [
         "https://c-dijk-dev.vercel.app",
-        "http://localhost:5173",
-        "http://localhost:5173/contact"
+        "http://localhost:5173/",
+        "http://localhost:5173/contact",
       ];
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
