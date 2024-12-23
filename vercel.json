@@ -1,11 +1,17 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "server.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "src": "/api/(.*)", "dest": "/api/send-message.js" },
-      { "src": "/(.*)", "dest": "/index.html" }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/send-message.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "dist/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/send-message.js" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
