@@ -6,12 +6,16 @@
       "use": "@vercel/node"
     },
     {
+      "src": "api/hello.js",
+      "use":"@vercel/node"
+    },
+    {
       "src": "dist/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/send-message.js" },
+    { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
