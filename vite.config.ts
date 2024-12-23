@@ -1,17 +1,19 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/",
+  base: "/", // Ensure the base path is correct
+  build: {
+    outDir: "dist", // Output directory for Vite's build
+  },
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:3001/", // Proxy to the backend server
+        target: "http://localhost:3001/", // Local backend proxy for development
         changeOrigin: true,
         secure: false,
       },
-      },
+    },
   },
 });
