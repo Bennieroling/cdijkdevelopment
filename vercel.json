@@ -7,5 +7,18 @@
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/$1" },      
     { "src": "/(.*)", "dest": "/dist/index.html" }     
-    ]
+    ],
+
+  "headers": [
+    {
+      "source": "dist/assets/(.*)",
+      "headers": [
+        {
+          "key": "Content-Type", 
+          "value":"application/javascript"
+        }
+      ]
+    }
+  ]
 }
+
