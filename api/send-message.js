@@ -8,6 +8,8 @@ import rateLimit from "express-rate-limit";
 dotenv.config(); // Load environment variables from .env file
 
 const app = express();
+console.log("SENDGRID_API_KEY:", process.env.SENDGRID_API_KEY);
+console.log("TEST");
 
 // Middleware
 app.use(
@@ -18,6 +20,9 @@ app.use(
         "https://c-dijk-dev.vercel.app",
         "http://localhost:5173/",
         "http://localhost:5173/contact",
+        "http://localhost:3001",
+        "http://localhost:3001/",
+        "http://localhost:5173",
       ];
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
@@ -29,6 +34,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(express.json()); // For parsing JSON requests
 app.options("*", cors()); // This handles all OPTIONS requests globally
 app.use(bodyParser.json());
 
@@ -43,8 +49,8 @@ app.use("/api/", limiter);
 app.post("/api/send-message", async (req, res) => {
   const { name, email, message } = req.body;
 
-  const sendgridApiKey = process.env.SENDGRID_API_KEY;
-  const templateId = process.env.TEMPLATE_ID;
+
+  console.log("SENDGRID_API_KEY:", process.env.SENDGRID_API_KEY);
 
   const data = {
     personalizations: [
@@ -53,36 +59,42 @@ app.post("/api/send-message", async (req, res) => {
         dynamic_template_data: {
           name,
           email,
-          subject: "test",
+          subject: "test123",
           message,
-        },
-      },
+        }
+      }
     ],
     from: {
       email: "bjsvandijk@gmail.com",
       name: "C-Dijk.nl",
     },
-    template_id: templateId,
+    template_id: "d-3613cf3ba8f54217ae92cbb83c15dd37",
   };
-
+  console.log("Request Payload:", JSON.stringify(data, null, 2));
+console.log("Request Headers:", {
+  Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
+  "Content-Type": "application/json",
+});
   try {
     const response = await axios.post("https://api.sendgrid.com/v3/mail/send", data, {
       headers: {
-        Authorization: `Bearer ${sendgridApiKey}`,
+        Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
         "Content-Type": "application/json",
       },
     });
 
     console.log("Email sent successfully:", response.data);
     res.status(200).json({ success: true, message: "Email sent successfully!" });
-  } catch (error) {
+  }catch (error) {
     console.error("Error sending email:", error.response?.data || error.message);
     res.status(500).json({ success: false, error: error.response?.data || error.message });
+    console.log("Full Request Template to SendGrid:", JSON.stringify(data, null, 2));
+
   }
 });
 
 // Start Server
-const PORT = process.env.PORT || 5173;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
