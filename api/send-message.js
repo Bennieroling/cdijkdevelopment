@@ -99,4 +99,11 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
-export default app;
+export default function handler(req, res) {
+  if (req.method === "POST") {
+    const { name, email, message } = req.body;
+    res.status(200).json({ success: true, data: { name, email, message } });
+  } else {
+    res.status(405).json({ error: "Method Not Allowed" });
+  }
+}

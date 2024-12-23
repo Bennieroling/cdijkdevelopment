@@ -6,6 +6,7 @@ export default defineConfig({
   base: "/", // Ensure the base path is correct
   build: {
     outDir: "dist", // Output directory for Vite's build
+    emptyOutDir: true,
   },
   server: {
     proxy: {
