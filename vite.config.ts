@@ -17,4 +17,4 @@ export default defineConfig({
       },
     },
   },
-});
+}); // end of file
