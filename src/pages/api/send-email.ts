@@ -25,6 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const response = await sgMail.send(msg);
     res.status(200).json({ message: "Email sent successfully", response });
+//@ts-ignore
   } catch (error: any) {
     console.error("SendGrid error:", error.response?.body || error);
     res.status(500).json({ error: "Failed to send email" });
