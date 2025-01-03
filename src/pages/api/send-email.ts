@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import sgMail from "@sendgrid/mail";
-import { getEmailTemplate } from "@/utils/parse-form-submission";
 
 sgMail.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API_KEY as string);
 
