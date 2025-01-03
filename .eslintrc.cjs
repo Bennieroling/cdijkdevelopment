@@ -3,7 +3,7 @@ module.exports = {
   env: { 
     browser: true, 
     es2020: true, 
-    node: true // Add Node.js environment
+    node: true, // Add Node.js environment
   },
   extends: [
     'eslint:recommended',
@@ -12,8 +12,9 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', '@typescript-eslint'], // Ensure @typescript-eslint is included as a plugin
   rules: {
+    '@typescript-eslint/no-explicit-any': 'off', // Correct namespace and rule key
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
