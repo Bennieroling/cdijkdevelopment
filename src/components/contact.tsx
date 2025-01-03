@@ -18,8 +18,9 @@ const Contact = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          to: formData.email,
+          email: formData.email,
           subject: `You received a message in c-dijk from ${formData.name}`,
+          name:formData.name,
           text: formData.message,
         }),
       });
