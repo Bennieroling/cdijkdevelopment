@@ -11,7 +11,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("Sending...");
+    setStatus("Versturen...");
 
     try {
       const response = await fetch("/api/send-email", {
@@ -26,7 +26,7 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        setStatus("Message sent successfully!");
+        setStatus("Je bericht is verstuurd!");
         setFormData({ name: "", email: "", message: "" });
       } else {
         const error = await response.json();
