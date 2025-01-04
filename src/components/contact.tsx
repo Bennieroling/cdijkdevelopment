@@ -41,7 +41,7 @@ const Contact = () => {
 
   return (
     <div className="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">Contact Us</h1>
+      <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">Contacteer mij</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="name" className="block font-semibold text-gray-700 mb-2">
@@ -91,14 +91,14 @@ const Contact = () => {
         <button
           type="submit"
           className="w-full py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-          disabled={status === "Sending..."}
+          disabled={status === "Versturen..."}
         >
-          {status === "Sending..." ? "Sending..." : "Send"}
+          {status === "Versturen..." ? "Versturen..." : "Verstuur"}
         </button>
         {status && (
           <p
             className={`mt-4 text-center font-bold ${
-              status === "Message sent successfully!"
+              status === "Je bericht is verstuurd!"
                 ? "text-green-600"
                 : "text-red-600"
             }`}
