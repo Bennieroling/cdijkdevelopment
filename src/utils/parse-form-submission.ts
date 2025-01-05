@@ -1,12 +1,13 @@
 
 interface getEmailTemplateProps{
 name:string;
+phone:string;
 email:string;
 subject:string;
 text:string;
 }
 
-export const getEmailTemplate=({name,email,subject,text}:getEmailTemplateProps)=>{
+export const getEmailTemplate=({name,phone,email,subject,text}:getEmailTemplateProps)=>{
     return`
     <html>
   <head>
@@ -56,10 +57,11 @@ export const getEmailTemplate=({name,email,subject,text}:getEmailTemplateProps)=
         <h1>New Contact Form Submission</h1>
       </div>
       <div class="content">
-        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Naa,:</strong> ${name}</p>
+        <p><strong>Telefoon:</strong> ${phone}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
-        <p><strong>Message:</strong></p>
+        <p><strong>Onderwerp:</strong> ${subject}</p>
+        <p><strong>Bericht:</strong></p>
         <p>${text}</p>
       </div>
       <div class="footer">
