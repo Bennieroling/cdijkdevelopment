@@ -8,9 +8,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { email, subject, text,name, phone } = req.body;
+  const { email, subject, text, name, phone } = req.body;
 
-  if (!email || !subject || !text) {
+  if (!email || !phone || !subject || !text) {
     return res.status(400).json({ error: "Missing required fields" });
   }
 

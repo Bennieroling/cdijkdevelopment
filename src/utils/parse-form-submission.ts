@@ -57,7 +57,7 @@ export const getEmailTemplate=({name,phone,email,subject,text}:getEmailTemplateP
         <h1>New Contact Form Submission</h1>
       </div>
       <div class="content">
-        <p><strong>Naa,:</strong> ${name}</p>
+        <p><strong>Naam:</strong> ${name}</p>
         <p><strong>Telefoon:</strong> ${phone}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Onderwerp:</strong> ${subject}</p>

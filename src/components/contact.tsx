@@ -19,6 +19,7 @@ const Contact = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: formData.email,
+          phone: formData.phone,
           subject: `You received a message in c-dijk from ${formData.name}`,
           name:formData.name,
           text: formData.message,
