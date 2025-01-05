@@ -8,7 +8,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { email, subject, text,name } = req.body;
+  const { email, subject, text,name, phone } = req.body;
 
   if (!email || !subject || !text) {
     return res.status(400).json({ error: "Missing required fields" });
@@ -70,6 +70,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       </div>
       <div class="content">
         <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Phone:</strong>${phone}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Subject:</strong> ${subject}</p>
         <p><strong>Message:</strong></p>

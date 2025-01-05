@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", phone: "", email: "", message: "" });
   const [status, setStatus] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -27,7 +27,7 @@ const Contact = () => {
 
       if (response.ok) {
         setStatus("Je bericht is verstuurd!");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", phone: "", email: "", message: "" });
       } else {
         const error = await response.json();
         setStatus(`Failed to send message: ${error.error || "Unknown error"}`);
@@ -54,6 +54,21 @@ const Contact = () => {
             value={formData.name}
             onChange={handleChange}
             placeholder="Je naam"
+            required
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
+        <div>
+          <label htmlFor="name" className="block font-semibold text-gray-700 mb-2">
+            Telefoon nummer
+          </label>
+          <input
+            id="phone"
+            type="text"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="Je telefoon nummer"
             required
             className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
