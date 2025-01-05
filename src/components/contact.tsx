@@ -106,7 +106,10 @@ const Contact = () => {
         </div>
         <button
           type="submit"
-          className="w-full py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full py-3 text-white font-semibold rounded-md hover:opacity-80 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          style={{
+            backgroundColor:"#62b6a4",
+          }}
           disabled={status === "Versturen..."}
         >
           {status === "Versturen..." ? "Versturen..." : "Verstuur"}
