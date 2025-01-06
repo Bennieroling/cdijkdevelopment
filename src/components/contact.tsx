@@ -20,7 +20,7 @@ const Contact = () => {
         body: JSON.stringify({
           email: formData.email,
           phone: formData.phone,
-          subject: `You received a message in c-dijk from ${formData.name}`,
+          subject: `Je hebt een nieuw bericht ontvangen via C-Dijk.nl van ${formData.name}`,
           name:formData.name,
           text: formData.message,
         }),

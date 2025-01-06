@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const msg = {
-      to: process.env.NEXT_PUBLIC_EMAIL as string,
+      to: [process.env.NEXT_PUBLIC_EMAIL as string, process.env.NEXT_PUBLIC_EMAIL_SECOND as string],
       from: process.env.NEXT_PUBLIC_SENDER_EMAIL as string,
       subject,
       text,
@@ -66,18 +66,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   <body>
     <div class="container">
       <div class="header">
-        <h1>New Contact Form Submission</h1>
+        <h1>Niew bericht via C-Dijk.nl</h1>
       </div>
       <div class="content">
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Phone:</strong>${phone}</p>
+        <p><strong>Naam:</strong> ${name}</p>
+        <p><strong>Telefoon:</strong>${phone}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
-        <p><strong>Message:</strong></p>
+        <p><strong>Onderwerp:</strong> ${subject}</p>
+        <p><strong>Bericht:</strong></p>
         <p>${text}</p>
       </div>
       <div class="footer">
-        <p>This message was submitted via the contact form on your website.</p>
+        <p>Dit bericht is verzonden via het contactformulier op uw website.</p>
       </div>
     </div>
   </body>
