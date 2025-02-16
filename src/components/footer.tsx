@@ -13,7 +13,7 @@ const Footer = () => {
         <IconPhone className="w-8" />
         +31 (0) 6 10 06 95 94
       </a>
-      <p className="font-lg flex items-center gap-2 font-black text-primary">KvK-nummer: 91129966</p>
+      <p className="font-lg flex items-center gap-2 font-black text-primary">KvK-nr: 91129966</p>
     </footer>
   );
 };
