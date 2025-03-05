@@ -1,5 +1,6 @@
 import IconLinkedin from "../icons/linkedin";
 import IconPhone from "../icons/phone";
+import IconMail from "../icons/mail";
 
 const Footer = () => {
   return (
