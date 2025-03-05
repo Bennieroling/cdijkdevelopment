@@ -9,7 +9,7 @@ const Footer = () => {
         <IconLinkedin className="w-8" />
         Linkedin
       </a>
-      <a className="font-lg flex items-center gap-2 font-black text-primary" href="caroline@c-dijk.nl">
+      <a className="font-lg flex items-center gap-2 font-black text-primary" href="mailto:caroline@c-dijk.nl">
         <IconMail className="w-8" />
         caroline@c-dijk.nl
         </a>
