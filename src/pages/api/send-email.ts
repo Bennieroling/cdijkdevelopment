@@ -16,8 +16,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const msg = {
-      to: "caroline@c-dijk.nl",
-      from: "caroline@c-dijk.nl",
+      to: [process.env.NEXT_PUBLIC_EMAIL as string, process.env.NEXT_PUBLIC_EMAIL_SECOND as string],
+      from: process.env.NEXT_PUBLIC_SENDER_EMAIL as string,
       subject,
       text,
       html:`
