@@ -16,8 +16,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const msg = {
-      to: "bjsvandijk@gmail.com",
-      from: "bjsvandijk@gmail.com",
+      to: "caroline@c-dijk.nl",
+      from: "caroline@c-dijk.nl",
       subject,
       text,
       html:`
